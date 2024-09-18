@@ -50,6 +50,7 @@ jobs:
                   liqi.json
                   liqi.proto
                   liqi.desc
+                  lqc.lqbin
 
             - name: Get latest release
               id: get_latest_release
@@ -68,12 +69,14 @@ jobs:
                 body: |
                   code.js ${{ env.code-js }}
                   liqi.json ${{ env.liqi-json }}
+                  lqc.lqbin ${{ env.lqc-lqbin }}
                 make_latest: true
                 files: |
                   code.js
                   liqi.json
                   liqi.proto
                   liqi.desc
+                  lqc.lqbin
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                    
