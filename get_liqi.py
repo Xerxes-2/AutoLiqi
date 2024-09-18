@@ -43,9 +43,9 @@ def main():
     with open(env, "a") as f:
         f.write(f"code-js=v{version['version']}\n")
     with open(env, "a") as f:
-        f.write(f"liqi-json={prefix}")
+        f.write(f"liqi-json={prefix}\n")
     with open(env, "a") as f:
-        f.write(f"lqc-lqbin={lqc_prefix}")
+        f.write(f"lqc-lqbin={lqc_prefix}\n")
 
 if __name__ == '__main__':
     main()
