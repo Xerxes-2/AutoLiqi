@@ -37,7 +37,7 @@ def main():
         f.write(liqi)
     with open('code.js','w') as f:
         f.write(code_js)
-    with open('lqc.bin','wb') as f:
+    with open('lqc.lqbin','wb') as f:
         f.write(lqc)
     env = os.getenv('GITHUB_ENV')
     with open(env, "a") as f:
@@ -45,7 +45,7 @@ def main():
     with open(env, "a") as f:
         f.write(f"liqi-json={prefix}")
     with open(env, "a") as f:
-        f.write(f"lqc-bin={lqc_prefix}")
+        f.write(f"lqc-lqbin={lqc_prefix}")
 
 if __name__ == '__main__':
     main()
