@@ -54,15 +54,24 @@ jobs:
 
             - name: Get latest release
               id: get_latest_release
-              uses: joutvhu/get-release@v1
+              uses: pozetroninc/github-action-get-latest-release@v0.8.0
               with:
-                latest: true
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              
+                repository: Xerxes-2/AutoLiqi
+
+            - name: Get lqbin version
+              id: lqbin
+              run: |
+                DESC=steps.get_latest_release.outputs.description
+                LQBIN_VERSION=$(echo $DESC | grep "lqc.lqbin" | awk '{print $2}')
+                if ["$LQBIN_VERSION" !== "${{ env.lqc-lqbin }}"]; then
+                  echo "update_needed=true" >> $GITHUB_OUTPUT
+                else
+                  echo "update_needed=false" >> $GITHUB_OUTPUT
+                fi
+
             - name: Upload release
               uses: softprops/action-gh-release@v2
-              if: ${{ steps.get_latest_release.outputs.tag_name != env.liqi-json }}
+              if: ${{ steps.get_latest_release.outputs.tag_name != env.liqi-json || steps.lqbin.outputs.update_needed }}
               with:
                 tag_name: ${{ env.liqi-json }}
                 token: ${{ secrets.GITHUB_TOKEN }}
