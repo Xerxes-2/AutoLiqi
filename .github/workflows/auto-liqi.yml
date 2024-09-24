@@ -63,7 +63,7 @@ jobs:
               run: |
                 DESC=steps.get_latest_release.outputs.description
                 LQBIN_VERSION=$(echo $DESC | grep "lqc.lqbin" | awk '{print $2}')
-                if ["$LQBIN_VERSION" !== "${{ env.lqc-lqbin }}"]; then
+                if [ "$LQBIN_VERSION" != "${{ env.lqc-lqbin }}" ]; then
                   echo "update_needed=true" >> $GITHUB_OUTPUT
                 else
                   echo "update_needed=false" >> $GITHUB_OUTPUT
