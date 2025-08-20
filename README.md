@@ -1,13 +1,15 @@
 # AutoLiqi
-每天20:00（UTF+8）自动获取`code.js`和`liqi.json`，并将`liqi.json`转为`liqi.proto`和`liqi_pb2.py`。
 
-Automatically fetch `code.js` and `liqi.json`, convert `liqi.json` to `liqi.proto` and `liqi_pb2.py` every day at 20:00 (UTF+8).
+利用 WebHook，每 5 分钟检查一次 `code.js` 和 `liqi.json` 的更新，如果检测到更新，则触发 GitHub Action。
+
+Using WebHook to check for `code.js` and `liqi.json` updates every 5 minutes, and if an update is detected, trigger the GitHub Action.
 
 ## 使用方法
-在[Release](https://github.com/Avenshy/AutoLiqi/releases/latest)中下载。
+
+在 [Release](https://github.com/Xerxes-2/AutoLiqi/releases/latest) 中下载。
 
 ## Thanks
-protobufjs protobufjs-cli -> [protobufjs/protobuf.js](https://github.com/protobufjs/protobuf.js)
 
-protoc (3.20.1) -> [Protocol Buffers](https://github.com/protocolbuffers/protobuf/releases/tag/v3.20.1)
-
+-   [protobufjs/protobuf.js](https://github.com/protobufjs/protobuf.js)
+-   [Protocol Buffers](https://github.com/protocolbuffers/protobuf/releases/tag/v3.20.1)
+-   [Vercel](https://vercel.com/)
