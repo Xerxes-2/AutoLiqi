@@ -18,7 +18,7 @@ async function checkUpdates() {
     const lqbinPrefix = resVersionData.res['res/config/lqc.lqbin'].prefix;
 
     // Get latest GitHub release
-    const githubResponse = await fetch('https://api.github.com/repos/zhuozhiyongde/AutoLiqi/releases/latest', {
+    const githubResponse = await fetch('https://api.github.com/repos/Xerxes-2/AutoLiqi/releases/latest', {
       headers: {
         'Authorization': process.env.GITHUB_TOKEN ? `Bearer ${process.env.GITHUB_TOKEN}` : undefined,
         'X-GitHub-Api-Version': '2022-11-28'
@@ -80,7 +80,7 @@ async function checkUpdates() {
 
 async function triggerGitHubAction(updateInfo) {
   try {
-    const webhookResponse = await fetch('https://api.github.com/repos/zhuozhiyongde/AutoLiqi/dispatches', {
+    const webhookResponse = await fetch('https://api.github.com/repos/Xerxes-2/AutoLiqi/dispatches', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
